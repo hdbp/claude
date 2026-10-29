@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "scientific-visualization",
+  "owner": "k-dense-ai",
+  "repo": "claude-scientific-skills",
+  "path": "scientific-skills/scientific-visualization",
+  "branch": "main",
+  "sha": "16b7682873611a7939482e2cd1f1203c223cc78b",
+  "source": "manual"
+}

@@ -1,0 +1,20 @@
+{
+  "name": "mcpmarket-my-toolkit",
+  "interface": {
+    "displayName": "MCPmarket"
+  },
+  "plugins": [
+    {
+      "name": "mcpmarket-my-toolkit",
+      "source": {
+        "source": "local",
+        "path": "./.agents/plugins/mcpmarket-my-toolkit"
+      },
+      "policy": {
+        "installation": "INSTALLED_BY_DEFAULT",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "mcp"
+    }
+  ]
+}

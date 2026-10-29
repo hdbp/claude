@@ -1,0 +1,7 @@
+{
+  "isEnabled": true,
+  "userConfig": {
+    "tools": "actors,docs,apify/rag-web-browser",
+    "apify_token": "<REDACTED>"
+  }
+}

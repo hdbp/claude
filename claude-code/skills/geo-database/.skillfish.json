@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "geo-database",
+  "owner": "k-dense-ai",
+  "repo": "claude-scientific-skills",
+  "path": "scientific-skills/geo-database",
+  "branch": "main",
+  "sha": "01c74930a869e68ce5b91156e4019d95472e29b4",
+  "source": "manual"
+}

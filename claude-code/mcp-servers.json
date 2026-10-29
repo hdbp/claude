@@ -1,0 +1,59 @@
+{
+  "mcpServers": {
+    "paperclip": {
+      "type": "http",
+      "url": "https://paperclip.gxl.ai/mcp"
+    },
+    "paperclip-orch": {
+      "type": "stdio",
+      "command": "/opt/homebrew/bin/paperclip-mcp",
+      "args": [
+        "--transport",
+        "stdio"
+      ],
+      "env": {
+        "PAPERCLIP_BASE_URL": "http://127.0.0.1:3100/api",
+        "PAPERCLIP_COMPANY_ID": "eb3df322-1e83-4929-8bf8-699f05675d78",
+        "PAPERCLIP_API_KEY": "<REDACTED>"
+      }
+    },
+    "rea": {
+      "command": "/opt/homebrew/bin/rea",
+      "args": [
+        "mcp"
+      ],
+      "env": {
+        "HOPPER_LAUNCHER_PATH": "/Users/hugo/Applications/Hopper Disassembler.app/Contents/MacOS/hopper"
+      }
+    }
+  },
+  "projects": {
+    "/Users/hugo": {
+      "mcpServers": {
+        "rea": {
+          "type": "stdio",
+          "command": "rea",
+          "args": [
+            "mcp"
+          ],
+          "env": {}
+        },
+        "github": {
+          "type": "http",
+          "url": "https://api.githubcopilot.com/mcp",
+          "headers": {
+            "Authorization": "<REDACTED>"
+          }
+        }
+      }
+    },
+    "/Users/hugo/.claude": {
+      "mcpServers": {
+        "robinhood-trading": {
+          "type": "http",
+          "url": "https://agent.robinhood.com/mcp/trading"
+        }
+      }
+    }
+  }
+}

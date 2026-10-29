@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "mcpmarket-my-toolkit": {
+      "url": "https://link.mcpmarket.com/hugo-danielbp/toolkits/my-toolkit/mcp",
+      "http_headers": {
+        "Authorization": "Bearer sk_user_vetKon2E2M_ogC8KajnkpsWffiwSFa1s"
+      }
+    }
+  }
+}

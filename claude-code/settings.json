@@ -1,0 +1,386 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mageck --version)",
+      "Bash(pip install mageck)",
+      "Bash(conda search -c bioconda mageck)",
+      "Bash(conda install -c bioconda mageck -y)",
+      "Bash(mageck test -k data/mageck_counts.txt -t GS_HUDEP2_Rep1_D0,GS_HUDEP2_Rep2_D0,GS_HUDEP2_Rep3_D0 -c GECKOv2_Plasmid_Library -n analysis/mageck/D0_vs_Library --norm-method median)",
+      "Bash(mageck test -k data/mageck_counts.txt -t GS_HUDEP2_Rep1_D12,GS_HUDEP2_Rep2_D12,GS_HUDEP2_Rep3_D12 -c GS_HUDEP2_Rep1_D0,GS_HUDEP2_Rep2_D0,GS_HUDEP2_Rep3_D0 -n analysis/mageck/D12_vs_D0 --norm-method median)",
+      "Bash(Rscript -e \":*)",
+      "Bash(mageck test -k data/mageck_counts.txt -t GS_HUDEP2_Rep1_D0,GS_HUDEP2_Rep2_D0,GS_HUDEP2_Rep3_D0 -c GECKOv2_Plasmid_Library -n analysis/mageck/D0_vs_Library --norm-method median --control-sgrna data/nontargeting_sgrnas.txt)",
+      "Bash(mageck test -k data/mageck_counts.txt -t GS_HUDEP2_Rep1_D12,GS_HUDEP2_Rep2_D12,GS_HUDEP2_Rep3_D12 -c GS_HUDEP2_Rep1_D0,GS_HUDEP2_Rep2_D0,GS_HUDEP2_Rep3_D0 -n analysis/mageck/D12_vs_D0 --norm-method median --control-sgrna data/nontargeting_sgrnas.txt)",
+      "Bash(mageck test -k data/mageck_counts.txt -t GS_HUDEP2_Rep1_D12,GS_HUDEP2_Rep2_D12,GS_HUDEP2_Rep3_D12 -c GS_HUDEP2_Rep1_D0,GS_HUDEP2_Rep2_D0,GS_HUDEP2_Rep3_D0 -n analysis/mageck/D12_vs_D0 --norm-method median --control-sgrna data/nontargeting_sgrnas.txt --gene-lfc-method mean)",
+      "Bash(mageck test -k data/mageck_counts.txt -t GS_HUDEP2_Rep1_D0,GS_HUDEP2_Rep2_D0,GS_HUDEP2_Rep3_D0 -c GECKOv2_Plasmid_Library -n analysis/mageck/D0_vs_Library --norm-method median --control-sgrna data/nontargeting_sgrnas.txt --gene-lfc-method mean --remove-zero control)",
+      "Bash(mageck test -k data/mageck_counts.txt -t GS_HUDEP2_Rep1_D12,GS_HUDEP2_Rep2_D12,GS_HUDEP2_Rep3_D12 -c GS_HUDEP2_Rep1_D0,GS_HUDEP2_Rep2_D0,GS_HUDEP2_Rep3_D0 -n analysis/mageck/D12_vs_D0 --norm-method median --control-sgrna data/nontargeting_sgrnas.txt --gene-lfc-method mean --remove-zero control)",
+      "Bash(Rscript analysis/scripts/06_H1_interpretation.R)",
+      "Bash(python scripts/plot_ct_comparison.py)",
+      "Read(//Users/hugo/Library/CloudStorage/Dropbox-EinsteinMed/**)",
+      "Read(//Users/hugo/**)"
+    ],
+    "defaultMode": "auto"
+  },
+  "model": "sonnet[1m]",
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/hugo/.config/iterm2/cc-status"
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Applications/Muxy.app/Contents/Resources/Muxy_Muxy.bundle/muxy-claude-hook.sh' notification # muxy-notification-hook",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/hugo/.config/iterm2/cc-status"
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/hooks/notchi-hook.sh\""
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/hugo/.config/iterm2/cc-status"
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/hooks/notchi-hook.sh\""
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/hooks/notchi-hook.sh\""
+          }
+        ]
+      },
+      {
+        "matcher": "manual",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/hooks/notchi-hook.sh\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/hugo/.config/iterm2/cc-status"
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/hooks/notchi-hook.sh\""
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Applications/Muxy.app/Contents/Resources/Muxy_Muxy.bundle/muxy-claude-hook.sh' pre-tool-use # muxy-notification-hook",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/hugo/.config/iterm2/cc-status"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/hooks/notchi-hook.sh\""
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/hugo/.config/iterm2/cc-status"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/hooks/notchi-hook.sh\""
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/hugo/.config/iterm2/cc-status"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/hooks/notchi-hook.sh\""
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Applications/Muxy.app/Contents/Resources/Muxy_Muxy.bundle/muxy-claude-hook.sh' stop # muxy-notification-hook",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/hugo/.config/iterm2/cc-status"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/hooks/notchi-hook.sh\""
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/hugo/.config/iterm2/cc-status"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"${CLAUDE_CONFIG_DIR:-$HOME/.claude}/hooks/notchi-hook.sh\""
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Applications/Muxy.app/Contents/Resources/Muxy_Muxy.bundle/muxy-claude-hook.sh' user-prompt-submit # muxy-notification-hook",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -n \"$SUPERSET_HOME_DIR\" ] && [ -x \"$SUPERSET_HOME_DIR/hooks/notify.sh\" ] && SUPERSET_AGENT_ID=claude \"$SUPERSET_HOME_DIR/hooks/notify.sh\" || true"
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "imessage@claude-plugins-official": true,
+    "mcpmarket-my-toolkit@mcpmarket-my-toolkit": true,
+    "remember@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "playground@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "watch@claude-video": true,
+    "superpowers@anthropic-plugin-directory": true,
+    "github@anthropic-plugin-directory": true,
+    "ribbon@robonuggets": true
+  },
+  "extraKnownMarketplaces": {
+    "mcpmarket-my-toolkit": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/hugo/.claude/plugins/mcpmarket-my-toolkit"
+      }
+    },
+    "claude-video": {
+      "source": {
+        "source": "github",
+        "repo": "bradautomates/claude-video"
+      }
+    },
+    "robonuggets": {
+      "source": {
+        "source": "github",
+        "repo": "robonuggets/ribbon"
+      }
+    }
+  },
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "inputNeededNotifEnabled": true,
+  "agentPushNotifEnabled": true,
+  "autoMode": {
+    "allow": [
+      "$defaults",
+      "Bash(sqlite3:*) read-only queries against local database files under /Users/hugo/Data",
+      "Bash(lsof:*) local port and file-handle inspection on this machine"
+    ],
+    "soft_deny": [
+      "$defaults",
+      "Bash(osascript:*) \u2014 AppleScript can drive other applications and the desktop outside this project; confirm before running",
+      "Bash(sqlite3:*) statements that DROP, DELETE FROM, or otherwise mutate local databases under /Users/hugo/Data"
+    ],
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: assume private unless the remote host and repo name indicate otherwise, or a visibility check in the transcript shows public \u2014 this checkout (/Users/hugo/Data) has no configured remote, so treat it as a local-only private working directory",
+      "**Internal sharing / snippet hosting**: None configured \u2014 treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: None configured",
+      "**Default / protected branches**: unknown \u2014 origin/HEAD unset and no remote configured, so no branch protection is queryable for this repo",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Source control**: The trusted repo and its remote(s) only (no additional orgs configured) \u2014 as scoped by the Trusted repo and Repository visibility entries above; this checkout currently has no remotes, so pushes have no configured destination",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar. In this project that includes omics/FCSviewer/.env.example and any local SQLite databases read via sqlite3 under /Users/hugo/Data",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries `prod` or `production` as a whole word or name segment (hyphen/underscore/dot-delimited \u2014 e.g. matches `prod-db`, not `producer`)",
+      "**Protected deployment namespaces / environments**: None configured \u2014 fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries `prod` or `production` as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development \u2014 local data/analysis work in /Users/hugo/Data, including a JS/Node toolchain (npx, npm), local SQLite inspection (sqlite3), and macOS local tooling (open, osascript, lsof)",
+      "**Trusted repo**: /Users/hugo/Data \u2014 the git repository the agent started in (its working directory) and its configured remote(s); it currently has no remotes, so treat it as local-only. When the repo's public/private visibility is given \u2014 by the Repository visibility entry or the user's own message \u2014 use it to scope what is OK to commit or push there: confidential material is fine in a private repo; in a public one, only that repo's own work is \u2014 and content ported, repointed, or first read from outside this session's repo is not its own work, whoever directed the port. Visibility scopes confidential material only: secrets and sensitive data (personal & entrusted) are never cleared into any repo by its visibility (see Definitions).",
+      "**Org-specific CLIs**: None configured \u2014 non-standard tools seen in this project are general-purpose (npx, sqlite3, lsof, open, osascript)"
+    ]
+  },
+  "attribution_header": false
+}

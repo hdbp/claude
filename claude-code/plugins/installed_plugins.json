@@ -1,0 +1,154 @@
+{
+  "version": 2,
+  "plugins": {
+    "imessage@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/claude-plugins-official/imessage/0.2.0",
+        "version": "0.2.0",
+        "installedAt": "2026-03-27T07:30:01.594Z",
+        "lastUpdated": "2026-10-01T14:48:22.186Z",
+        "gitCommitSha": "<REDACTED>"
+      }
+    ],
+    "remember@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/claude-plugins-official/remember/0.43.1",
+        "version": "0.43.1",
+        "installedAt": "2026-03-27T07:30:58.720Z",
+        "lastUpdated": "2026-10-17T18:48:52.434Z",
+        "gitCommitSha": "<REDACTED>"
+      }
+    ],
+    "mcpmarket-my-toolkit@mcpmarket-my-toolkit": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/mcpmarket-my-toolkit/mcpmarket-my-toolkit/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-05-31T20:19:16.267Z",
+        "lastUpdated": "2026-05-31T20:19:16.267Z"
+      }
+    ],
+    "commit-commands@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/claude-plugins-official/commit-commands/1.0.1",
+        "version": "1.0.1",
+        "installedAt": "2026-07-04T17:45:19.834Z",
+        "lastUpdated": "2026-10-28T03:56:28.798Z",
+        "gitCommitSha": "<REDACTED>"
+      }
+    ],
+    "claude-code-setup@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/claude-plugins-official/claude-code-setup/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-07-04T17:45:37.725Z",
+        "lastUpdated": "2026-07-04T17:45:37.725Z"
+      }
+    ],
+    "skill-creator@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/claude-plugins-official/skill-creator/f8c5e7a1dcb7",
+        "version": "f8c5e7a1dcb7",
+        "installedAt": "2026-07-04T17:45:58.981Z",
+        "lastUpdated": "2026-10-28T03:56:28.804Z",
+        "gitCommitSha": "<REDACTED>"
+      }
+    ],
+    "playground@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/claude-plugins-official/playground/f8c5e7a1dcb7",
+        "version": "f8c5e7a1dcb7",
+        "installedAt": "2026-07-04T17:46:06.753Z",
+        "lastUpdated": "2026-10-28T03:56:28.801Z",
+        "gitCommitSha": "<REDACTED>"
+      }
+    ],
+    "frontend-design@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/claude-plugins-official/frontend-design/1.1.1",
+        "version": "1.1.1",
+        "installedAt": "2026-07-04T17:46:10.572Z",
+        "lastUpdated": "2026-10-28T03:56:28.798Z",
+        "gitCommitSha": "<REDACTED>"
+      }
+    ],
+    "feature-dev@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/claude-plugins-official/feature-dev/1.0.1",
+        "version": "1.0.1",
+        "installedAt": "2026-07-04T17:46:22.699Z",
+        "lastUpdated": "2026-10-28T03:56:28.799Z",
+        "gitCommitSha": "<REDACTED>"
+      }
+    ],
+    "claude-md-management@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/claude-plugins-official/claude-md-management/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-07-04T17:46:42.760Z",
+        "lastUpdated": "2026-07-04T17:46:42.760Z"
+      }
+    ],
+    "code-review@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/claude-plugins-official/code-review/1.0.1",
+        "version": "1.0.1",
+        "installedAt": "2026-07-04T17:46:48.600Z",
+        "lastUpdated": "2026-10-28T03:56:28.797Z",
+        "gitCommitSha": "<REDACTED>"
+      }
+    ],
+    "watch@claude-video": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/claude-video/watch/0.2.0",
+        "version": "0.2.0",
+        "installedAt": "2026-07-04T21:48:13.450Z",
+        "lastUpdated": "2026-07-04T21:48:13.450Z",
+        "gitCommitSha": "<REDACTED>"
+      }
+    ],
+    "superpowers@anthropic-plugin-directory": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/anthropic-plugin-directory/superpowers/6.4.2-8ca22dba9a94",
+        "version": "6.4.2-8ca22dba9a94",
+        "installedAt": "2026-10-28T03:52:23.284Z",
+        "lastUpdated": "2026-10-28T03:52:23.284Z",
+        "gitCommitSha": "<REDACTED>",
+        "directoryRepositoryKey": "<REDACTED>"
+      }
+    ],
+    "github@anthropic-plugin-directory": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/anthropic-plugin-directory/github/f8c5e7a1dcb7-0e62e4cb",
+        "version": "f8c5e7a1dcb7-0e62e4cb",
+        "installedAt": "2026-10-28T03:52:42.106Z",
+        "lastUpdated": "2026-10-28T03:52:42.106Z",
+        "gitCommitSha": "<REDACTED>",
+        "directoryRepositoryKey": "<REDACTED>"
+      }
+    ],
+    "ribbon@robonuggets": [
+      {
+        "scope": "user",
+        "installPath": "/Users/hugo/.claude/plugins/cache/robonuggets/ribbon/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-10-28T04:04:57.953Z",
+        "lastUpdated": "2026-10-28T04:04:57.953Z",
+        "gitCommitSha": "<REDACTED>"
+      }
+    ]
+  }
+}

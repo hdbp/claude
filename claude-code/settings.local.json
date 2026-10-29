@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(mount)",
+      "Bash(diskutil info *)",
+      "Bash(tmutil listlocalsnapshots *)",
+      "Bash(tmutil status *)",
+      "Bash(diskutil apfs *)"
+    ]
+  }
+}

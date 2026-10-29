@@ -1,0 +1,6 @@
+[mcp_servers.mcpmarket-my-toolkit]
+url = "https://link.mcpmarket.com/hugo-danielbp/toolkits/my-toolkit/mcp"
+bearer_token_env_var = "MCPMARKET_TOKEN"
+
+[mcp_servers.mcpmarket-my-toolkit.http_headers]
+Authorization = "Bearer sk_user_vetKon2E2M_ogC8KajnkpsWffiwSFa1s"

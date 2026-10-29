@@ -1,0 +1,94 @@
+{
+  "manifest_version": "0.2",
+  "name": "PowerPoint (By Anthropic)",
+  "display_name": "PowerPoint (By Anthropic)",
+  "version": "0.4.3",
+  "description": "Control Microsoft PowerPoint with AppleScript automation",
+  "long_description": "This extension allows Claude to interact with Microsoft PowerPoint on macOS, enabling presentation creation, slide management, and content editing.\n\nIt uses macOS AppleScript automation to control PowerPoint and requires your explicit permission through macOS security prompts before accessing Microsoft PowerPoint. It is not affiliated with or endorsed by Microsoft Corporation.",
+  "author": {
+    "name": "Anthropic",
+    "url": "https://www.anthropic.com"
+  },
+  "homepage": "https://www.anthropic.com",
+  "documentation": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+  "support": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+  "icon": "icon.png",
+  "tools": [
+    {
+      "name": "create_presentation",
+      "description": "Create a new PowerPoint presentation"
+    },
+    {
+      "name": "open_presentation",
+      "description": "Open an existing PowerPoint presentation"
+    },
+    {
+      "name": "add_slide",
+      "description": "Add a new slide to the presentation"
+    },
+    {
+      "name": "get_slide_content",
+      "description": "Get the text content from a specific slide"
+    },
+    {
+      "name": "set_slide_title",
+      "description": "Set the title of a slide"
+    },
+    {
+      "name": "add_text_to_slide",
+      "description": "Add text content to a slide"
+    },
+    {
+      "name": "insert_image",
+      "description": "Insert an image into a slide"
+    },
+    {
+      "name": "delete_slide",
+      "description": "Delete a specific slide"
+    },
+    {
+      "name": "save_presentation",
+      "description": "Save the active presentation"
+    },
+    {
+      "name": "close_presentation",
+      "description": "Close the active presentation"
+    },
+    {
+      "name": "export_pdf",
+      "description": "Export the presentation as PDF"
+    }
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"],
+      "env": {
+        "HOME": "${HOME}"
+      }
+    }
+  },
+  "keywords": [
+    "microsoft",
+    "powerpoint",
+    "office",
+    "presentations",
+    "slides",
+    "productivity",
+    "macos",
+    "automation"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": ["darwin"],
+    "runtimes": {
+      "node": ">=16.0.0"
+    }
+  },
+  "privacy_policies": [
+    "https://www.microsoft.com/en-us/privacy/privacystatement"
+  ]
+}

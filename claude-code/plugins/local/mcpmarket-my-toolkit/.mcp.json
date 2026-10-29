@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "mcpmarket-my-toolkit": {
+      "url": "https://link.mcpmarket.com/hugo-danielbp/toolkits/my-toolkit/mcp",
+      "headers": {
+        "Authorization": "<REDACTED>"
+      }
+    }
+  }
+}

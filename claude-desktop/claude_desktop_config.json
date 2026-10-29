@@ -1,0 +1,181 @@
+{
+  "mcpServers": {
+    "geo-database": {
+      "command": "node",
+      "args": [
+        "/Users/hugo/Documents/Cline/MCP/geo-database/build/index.js"
+      ]
+    }
+  },
+  "deploymentMode": "1p",
+  "coworkUserFilesPath": "/Users/hugo/Claude",
+  "preferences": {
+    "quickEntryDictationShortcut": "off",
+    "coworkBrowserToolsEnabled": true,
+    "coworkPreferredBrowser": "built_in",
+    "launchPreviewStorage": "shared",
+    "launchPreviewPersistedWorkspaces": [
+      "cowork-shared"
+    ],
+    "launchPreviewSessionScopedSessions": [],
+    "launchPreviewAllowedOrigins": [
+      "https://claude.ai",
+      "https://outlook.office.com",
+      "https://login.microsoftonline.com"
+    ],
+    "launchChromeImportPrompt": "done",
+    "localAgentModeTrustedFolders": [
+      "/Users/hugo/Downloads/biomolecules-14-01221-s001",
+      "/Users/hugo/Library/CloudStorage/Dropbox-EinsteinMed/Hugo Pinto/Libraries/U2AF2_ESC_K562",
+      "/Users/hugo/Documents"
+    ],
+    "remoteChatFolderGrants": {
+      "8866ad59-2af3-4cc2-88d4-74b15ccd099c": {
+        "orgUuid": "af7cf443-1423-4bf6-a000-1127644c0ec2",
+        "accountUuid": "b413e5e5-c720-4cf6-8f7a-0f9828179add",
+        "folders": [
+          "/Users/hugo/Library/CloudStorage/Dropbox-EinsteinMed/H1 Rates Manuscript/writting_style"
+        ]
+      },
+      "bd2bd99b-bef0-4c39-8620-3bbca7b44494": {
+        "orgUuid": "af7cf443-1423-4bf6-a000-1127644c0ec2",
+        "accountUuid": "b413e5e5-c720-4cf6-8f7a-0f9828179add",
+        "folders": [
+          "/Users/hugo/.hermes"
+        ]
+      }
+    },
+    "coworkLegacyRootGrantsPruned": true,
+    "coworkHasBoundRoutine": {
+      "af7cf443-1423-4bf6-a000-1127644c0ec2": true
+    },
+    "allowAllBrowserActions": true,
+    "coworkScheduledTasksEnabled": true,
+    "coworkHipaaRestricted": false,
+    "orgWorkAcrossAppsDisabled": false,
+    "ccdScheduledTasksEnabled": true,
+    "sidebarMode": "epitaxy",
+    "bypassPermissionsModeEnabled": true,
+    "bypassPermissionsOptInByAccount": {
+      "b413e5e5-c720-4cf6-8f7a-0f9828179add": true
+    },
+    "bypassPermissionsGateByAccount": {
+      "b413e5e5-c720-4cf6-8f7a-0f9828179add": true
+    },
+    "dockBounceEnabled": true,
+    "coworkWebSearchEnabled": true,
+    "coworkModelAutoFallbackByAccount": {
+      "b413e5e5-c720-4cf6-8f7a-0f9828179add": true
+    },
+    "keepAwakeEnabled": true,
+    "coworkOnboardingResumeStep": null,
+    "chicagoEnabled": true,
+    "remoteToolsDeviceName": "m3max-local",
+    "chicagoBackgroundIntroSeen": true,
+    "ccRemoteControlDefaultEnabled": true,
+    "epitaxyPrefs": {
+      "ccd-sessions-filter": {
+        "state": {
+          "selectedProjects": []
+        },
+        "version": 0
+      },
+      "desktop-frame.paneStore.v1": {
+        "state": {
+          "extraPanesByMode": {},
+          "colWeightsByMode": {},
+          "rowSplit": 0.5,
+          "draftNonce": 0,
+          "lastPrimaryCodeSession": {
+            "id": "local_d641a118-f3ae-4d74-9eb3-1e3b98c5febe",
+            "type": "local"
+          }
+        },
+        "version": 4
+      },
+      "dframe-group-scopes": {},
+      "dframe-local-slice": {
+        "pinnedOrder": [],
+        "homeProjectsPinnedOrder": []
+      },
+      "epitaxy-auto-default-notice-seen.b413e5e5-c720-4cf6-8f7a-0f9828179add": true,
+      "epitaxy-auto-mode-consented.b413e5e5-c720-4cf6-8f7a-0f9828179add": true,
+      "epitaxy-auto-setup-band-seen.b413e5e5-c720-4cf6-8f7a-0f9828179add": true,
+      "epitaxy-transcript-links-chooser-seen": true,
+      "epitaxy-transcript-links-in-preview": false,
+      "preferredPreviewServers": {
+        "/Users/hugo/Data": "labtools-frontend"
+      },
+      "starred-cowork-spaces": [],
+      "starred-local-code-sessions": [
+        "<REDACTED>"
+      ],
+      "starred-local-routines": [],
+      "starred-session-groups": [],
+      "dframe-code-sections": {
+        "b413e5e5-c720-4cf6-8f7a-0f9828179add/af7cf443-1423-4bf6-a000-1127644c0ec2": {
+          "sections": [
+            {
+              "id": "pinned",
+              "kind": "pinned",
+              "v": 2,
+              "name": "",
+              "order": 0,
+              "sortBy": "recency",
+              "ascending": false,
+              "show": {
+                "metadata": false,
+                "emptyGroups": false,
+                "sideChats": false
+              },
+              "collapsed": false,
+              "shown": true
+            },
+            {
+              "id": "routines",
+              "kind": "routines",
+              "v": 2,
+              "name": "",
+              "order": 1,
+              "sortBy": "recency",
+              "ascending": false,
+              "show": {
+                "metadata": false,
+                "emptyGroups": false,
+                "sideChats": false
+              },
+              "collapsed": true,
+              "shown": false
+            },
+            {
+              "id": "sessions",
+              "kind": "sessions",
+              "v": 2,
+              "name": "",
+              "order": 2,
+              "sortBy": "recency",
+              "ascending": false,
+              "show": {
+                "metadata": true,
+                "emptyGroups": false,
+                "sideChats": true
+              },
+              "collapsed": false,
+              "shown": true
+            }
+          ],
+          "migratedFrom": 1,
+          "prefsSeeded": true
+        }
+      },
+      "epitaxy-serene-whistle-decided": {
+        "local_ae4d38d7-2278-456a-a671-ef07b1beb97a": {
+          "base": "claude-sonnet-5"
+        }
+      },
+      "epitaxy-auto-entry-warning-seen.b413e5e5-c720-4cf6-8f7a-0f9828179add": true,
+      "epitaxy-auto-reinvite-first-block-seen.b413e5e5-c720-4cf6-8f7a-0f9828179add": true,
+      "epitaxy-auto-mode-denial-count.b413e5e5-c720-4cf6-8f7a-0f9828179add": 2
+    }
+  }
+}

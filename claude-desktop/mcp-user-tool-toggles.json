@@ -1,0 +1,12 @@
+{
+  "v": 3,
+  "owners": {
+    "b413e5e5-c720-4cf6-8f7a-0f9828179add": [
+      "e13a1e0e-6cc3-476e-9645-a6bb999b5a21:TOOL_CALL",
+      "e13a1e0e-6cc3-476e-9645-a6bb999b5a21:TOOL_GET",
+      "e13a1e0e-6cc3-476e-9645-a6bb999b5a21:TOOL_LIST",
+      "f4dabfcb-92b7-420b-8878-e0ddd6789aaa:feedback-to-devs",
+      "f4dabfcb-92b7-420b-8878-e0ddd6789aaa:search-flight"
+    ]
+  }
+}

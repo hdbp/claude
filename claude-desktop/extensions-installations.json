@@ -1,0 +1,1234 @@
+{
+  "extensions": {
+    "ant.dir.ant.anthropic.filesystem": {
+      "id": "ant.dir.ant.anthropic.filesystem",
+      "version": "2026.7.10",
+      "hash": "<REDACTED>",
+      "installedAt": "2026-07-21T23:32:27.591Z",
+      "manifest": {
+        "manifest_version": "0.3",
+        "name": "Filesystem",
+        "display_name": "Filesystem",
+        "version": "2026.7.10",
+        "description": "Let Claude access your filesystem to read and write files.",
+        "long_description": "This extension allows Claude to interact with your local filesystem, enabling it to read and write files directly. This can be useful for tasks such as file management, data processing, and automation of repetitive tasks. The extension provides a set of tools that can be used to navigate directories, read file contents, and write new files or modify existing ones.\n\nUnderneath the hood, it uses @modelcontextprotocol/server-filesystem v2026.7.4.",
+        "author": {
+          "name": "Anthropic",
+          "url": "https://www.claude.ai"
+        },
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/modelcontextprotocol/servers"
+        },
+        "homepage": "https://www.claude.ai",
+        "documentation": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+        "support": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+        "icon": "icon.png",
+        "server": {
+          "type": "node",
+          "entry_point": "dist/index.js",
+          "mcp_config": {
+            "command": "node",
+            "args": [
+              "${__dirname}/dist/index.js",
+              "${user_config.allowed_directories}"
+            ]
+          }
+        },
+        "tools": [
+          {
+            "name": "read_file",
+            "description": "Read the complete contents of a file as text. DEPRECATED: Use read_text_file instead."
+          },
+          {
+            "name": "read_text_file",
+            "description": "Read the complete contents of a file from the file system as text. Handles various text encodings and provides detailed error messages if the file cannot be read. Use this tool when you need to examine the contents of a single file. Use the 'head' parameter to read only the first N lines of a file, or the 'tail' parameter to read only the last N lines of a file. Operates on the file as text regardless of extension. Only works within allowed directories."
+          },
+          {
+            "name": "read_media_file",
+            "description": "Read an image or audio file. Returns the base64 encoded data and MIME type. Only works within allowed directories."
+          },
+          {
+            "name": "read_multiple_files",
+            "description": "Read the contents of multiple files simultaneously. This is more efficient than reading files one by one when you need to analyze or compare multiple files. Each file's content is returned with its path as a reference. Failed reads for individual files won't stop the entire operation. Only works within allowed directories."
+          },
+          {
+            "name": "write_file",
+            "description": "Create a new file or completely overwrite an existing file with new content. Use with caution as it will overwrite existing files without warning. Handles text content with proper encoding. Only works within allowed directories."
+          },
+          {
+            "name": "edit_file",
+            "description": "Make line-based edits to a text file. Each edit replaces exact line sequences with new content. Returns a git-style diff showing the changes made. Only works within allowed directories."
+          },
+          {
+            "name": "create_directory",
+            "description": "Create a new directory or ensure a directory exists. Can create multiple nested directories in one operation. If the directory already exists, this operation will succeed silently. Perfect for setting up directory structures for projects or ensuring required paths exist. Only works within allowed directories."
+          },
+          {
+            "name": "list_directory",
+            "description": "Get a detailed listing of all files and directories in a specified path. Results clearly distinguish between files and directories with [FILE] and [DIR] prefixes. This tool is essential for understanding directory structure and finding specific files within a directory. Only works within allowed directories."
+          },
+          {
+            "name": "list_directory_with_sizes",
+            "description": "Get a detailed listing of all files and directories in a specified path, including sizes. Results clearly distinguish between files and directories with [FILE] and [DIR] prefixes. This tool is useful for understanding directory structure and finding specific files within a directory. Only works within allowed directories."
+          },
+          {
+            "name": "directory_tree",
+            "description": "Get a recursive tree view of files and directories as a JSON structure. Each entry includes 'name', 'type' (file/directory), and 'children' for directories. Files have no children array, while directories always have a children array (which may be empty). The output is formatted with 2-space indentation for readability. Only works within allowed directories."
+          },
+          {
+            "name": "move_file",
+            "description": "Move or rename files and directories. Can move files between directories and rename them in a single operation. If the destination exists, the operation will fail. Works across different directories and can be used for simple renaming within the same directory. Both source and destination must be within allowed directories."
+          },
+          {
+            "name": "search_files",
+            "description": "Recursively search for files and directories matching a pattern. The patterns should be glob-style patterns that match paths relative to the working directory. Use pattern like '*.ext' to match files in current directory, and '**/*.ext' to match files in all subdirectories. Returns full paths to all matching items. Great for finding files when you don't know their exact location. Only searches within allowed directories."
+          },
+          {
+            "name": "get_file_info",
+            "description": "Retrieve detailed metadata about a file or directory. Returns comprehensive information including size, creation time, last modified time, permissions, and type. This tool is perfect for understanding file characteristics without reading the actual content. Only works within allowed directories."
+          },
+          {
+            "name": "list_allowed_directories",
+            "description": "Returns the list of directories that this server is allowed to access. Subdirectories within these allowed directories are also accessible. Use this to understand which directories and their nested paths are available before trying to access files."
+          }
+        ],
+        "keywords": [
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>"
+        ],
+        "license": "MIT",
+        "compatibility": {
+          "claude_desktop": ">=0.10.0",
+          "platforms": [
+            "darwin",
+            "win32",
+            "linux"
+          ],
+          "runtimes": {
+            "node": ">=16.0.0"
+          }
+        },
+        "user_config": {
+          "allowed_directories": {
+            "type": "directory",
+            "title": "Allowed Directories",
+            "description": "Select directories the filesystem server can access",
+            "required": true,
+            "default": [],
+            "multiple": true
+          }
+        }
+      },
+      "signatureInfo": {
+        "status": "unsigned"
+      },
+      "source": "registry"
+    },
+    "ant.dir.gh.wonderwhy-er.desktopcommandermcp": {
+      "id": "ant.dir.gh.wonderwhy-er.desktopcommandermcp",
+      "version": "0.2.46",
+      "hash": "<REDACTED>",
+      "installedAt": "2026-07-21T23:32:30.036Z",
+      "manifest": {
+        "$schema": "../../dist/mcpb-manifest.schema.json",
+        "manifest_version": "0.3",
+        "name": "desktop-commander",
+        "display_name": "Desktop Commander",
+        "version": "0.2.46",
+        "description": "Build, explore, and automate on your local machine with access to files and terminal.",
+        "long_description": "Combine local filesystem access with full terminal control to handle technical tasks through natural language. Desktop Commander empowers you to build, explore, and automate - from organizing repositories to creating complete applications:\n* **Build from scratch** - Create features and applications with simple commands\n* **Manage development environments** - Set up servers, configure systems, and handle processes\n* **Manage context and documentation** - Keep track of project details and technical specifications\n* **Explore existing codebases and projects** - Navigate and understand complex repositories\n\nThis extension bridges technical skill gaps by providing full command-line superpowers through an interface that understands your intent and handles complexity automatically.",
+        "author": {
+          "name": "Desktop Commander Team",
+          "email": "er@desktopcommander.app",
+          "url": "https://desktopcommander.app/"
+        },
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/wonderwhy-er/DesktopCommanderMCP.git"
+        },
+        "homepage": "https://github.com/wonderwhy-er/DesktopCommanderMCP",
+        "documentation": "https://github.com/wonderwhy-er/DesktopCommanderMCP/blob/main/FAQ.md",
+        "support": "https://github.com/wonderwhy-er/DesktopCommanderMCP/issues",
+        "icon": "icon.png",
+        "server": {
+          "type": "node",
+          "entry_point": "dist/index.js",
+          "mcp_config": {
+            "command": "node",
+            "args": [
+              "${__dirname}/dist/index.js"
+            ],
+            "env": {
+              "MCP_DXT": "true",
+              "NODE_ENV": "production"
+            }
+          }
+        },
+        "tools": [
+          {
+            "name": "get_config",
+            "description": "Get the complete server configuration including blocked commands, allowed directories, file limits, telemetry settings, client info, and system information."
+          },
+          {
+            "name": "set_config_value",
+            "description": "Set a specific configuration value by key. WARNING: Should be used in a separate chat from file operations to prevent security issues."
+          },
+          {
+            "name": "read_file",
+            "description": "Read contents from local filesystem, URLs, Excel files (.xlsx, .xls, .xlsm), PDFs, and DOCX files with line/page-based pagination."
+          },
+          {
+            "name": "read_multiple_files",
+            "description": "Read the contents of multiple files simultaneously. Handles text files and renders images."
+          },
+          {
+            "name": "write_file",
+            "description": "Write or append to file contents. Supports Excel files (JSON 2D array format) and DOCX creation from markdown. For PDFs, use write_pdf instead."
+          },
+          {
+            "name": "write_pdf",
+            "description": "Create new PDF files from markdown or modify existing PDFs (insert/delete pages). Supports HTML/CSS styling and SVG graphics."
+          },
+          {
+            "name": "create_directory",
+            "description": "Create a new directory or ensure a directory exists. Can create multiple nested directories in one operation."
+          },
+          {
+            "name": "list_directory",
+            "description": "Get a detailed recursive listing of all files and directories in a specified path. Supports depth parameter (default: 2) for multi-level directory traversal."
+          },
+          {
+            "name": "move_file",
+            "description": "Move or rename files and directories between locations."
+          },
+          {
+            "name": "start_search",
+            "description": "Start streaming search for files by name or content patterns. Searches text files, Excel, and DOCX content."
+          },
+          {
+            "name": "get_more_search_results",
+            "description": "Get more results from an active search with offset-based pagination."
+          },
+          {
+            "name": "stop_search",
+            "description": "Stop an active search gracefully when you've found what you need."
+          },
+          {
+            "name": "list_searches",
+            "description": "List all active searches with their status and runtime information."
+          },
+          {
+            "name": "get_file_info",
+            "description": "Retrieve detailed metadata about a file or directory including size, timestamps, permissions, line counts, and sheet info for Excel files."
+          },
+          {
+            "name": "edit_block",
+            "description": "Apply targeted text replacements for text and DOCX files, or range-based cell updates for Excel files."
+          },
+          {
+            "name": "start_process",
+            "description": "Start a new terminal process with intelligent state detection. Primary tool for local file analysis (CSV, JSON, logs, etc.)."
+          },
+          {
+            "name": "read_process_output",
+            "description": "Read output from a running process with intelligent completion detection, REPL prompt recognition, and offset/length pagination."
+          },
+          {
+            "name": "interact_with_process",
+            "description": "Send input to a running process and automatically receive the response. Critical tool for all local file analysis."
+          },
+          {
+            "name": "force_terminate",
+            "description": "Force terminate a running terminal session."
+          },
+          {
+            "name": "list_sessions",
+            "description": "List all active terminal sessions with status information including blocked state and runtime."
+          },
+          {
+            "name": "list_processes",
+            "description": "List all running processes with PID, command name, CPU usage, and memory usage."
+          },
+          {
+            "name": "kill_process",
+            "description": "Terminate a running process by PID. Use with caution."
+          },
+          {
+            "name": "get_usage_stats",
+            "description": "Get usage statistics for debugging and analysis including tool usage and performance metrics."
+          },
+          {
+            "name": "get_recent_tool_calls",
+            "description": "Get recent tool call history with their arguments and outputs. Returns chronological list of tool calls made during this session for debugging, context recovery, and onboarding new chats."
+          },
+          {
+            "name": "give_feedback_to_desktop_commander",
+            "description": "Open feedback form in browser to provide feedback about Desktop Commander."
+          },
+          {
+            "name": "get_prompts",
+            "description": "Browse and retrieve curated Desktop Commander prompts for various tasks and workflows."
+          }
+        ],
+        "keywords": [
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>"
+        ],
+        "license": "MIT",
+        "privacy_policies": [
+          "https://legal.desktopcommander.app/privacy_desktop_commander_mcp"
+        ],
+        "compatibility": {
+          "platforms": [
+            "darwin",
+            "win32",
+            "linux"
+          ],
+          "runtimes": {
+            "node": ">=18.0.0"
+          }
+        }
+      },
+      "signatureInfo": {
+        "status": "unsigned"
+      },
+      "source": "registry"
+    },
+    "ant.dir.gh.silverstein.pdf-filler-simple": {
+      "id": "ant.dir.gh.silverstein.pdf-filler-simple",
+      "version": "0.11.0",
+      "hash": "<REDACTED>",
+      "installedAt": "2026-08-18T06:06:11.790Z",
+      "manifest": {
+        "manifest_version": "0.3",
+        "name": "pdf-toolkit",
+        "display_name": "PDF Tools",
+        "version": "0.11.0",
+        "description": "Open any PDF already on your computer and work with it: read and search it in an interactive viewer, fill and sign forms, extract text and data, merge, split, and compare documents. Your files never leave your machine.",
+        "long_description": "PDF Tools turns Claude Desktop into a complete PDF workstation with local file operations. Claude can fetch PDFs from URLs, inspect them visually, fill forms, manage pages, add signature/date zones, apply local signatures or text, extract structured data, and return document content to the selected MCP host for analysis.\n\nThis package targets Claude Desktop and other local MCP hosts today. It does not yet include a remote Claude/Cowork connector.\n\n**Interactive PDF Viewer:**\n\u2022 View PDFs with page navigation, zoom, search, text selection, and fullscreen\n\u2022 See form fields in a sidebar with fill status\n\u2022 Use visual page management to reorder, rotate, and remove pages before saving\n\u2022 Switch into Sign mode to work with signature/date zones on the PDF\n\n**Sign Mode & Local Signatures:**\n\u2022 Detect signature, initials, printed-name, and date zones with visible coordinates Claude can reason from\n\u2022 Draw or reuse saved local signatures\n\u2022 Place signatures, dates, or other text on detected or custom zones\n\u2022 Inspect a region, preview it, and turn it into a typed signing zone when the automatic detector is not enough\n\u2022 Keep edits local, with active-document tracking and automatic backup behavior for same-file mutations\n\n**URL-to-PDF Workflows:**\n\u2022 Fetch PDFs from HTTP(S) URLs to the user's local machine, including cases where Claude's WebFetch is blocked\n\u2022 Open downloaded PDFs immediately in the viewer for fill, sign, page management, extraction, or analysis\n\u2022 Use page-bounded reads, text search, page renders, and region renders instead of one brittle all-document operation\n\n**Forms & Reusable Profiles:**\n\u2022 Fill W-9s, 1099s, rental applications, waivers, and any fillable PDF\n\u2022 Save personal or business details as reusable profiles\n\u2022 List, load, and apply saved profiles so repeated forms take seconds instead of minutes\n\u2022 Bulk fill many PDFs from CSV data and validate required fields before submission\n\n**Page Organization Tools:**\n\u2022 Merge multiple PDFs into one document\n\u2022 Split PDFs by exact page ranges or regular intervals\n\u2022 Rotate and reorder pages, or apply a full page plan in one pass\n\u2022 Keep the original intact by saving organized output as a new file\n\n**Extraction, Rendering & Analysis:**\n\u2022 Read existing PDF text layers for summarization, question answering, and research workflows\n\u2022 Read specific page ranges and search PDF text with page-numbered snippets\n\u2022 Convert supported born-digital page ranges to deterministic Markdown with explicit coverage gaps\n\u2022 Render full pages or bounded regions to PNG for host/model vision on scanned or image-heavy documents\n\u2022 If a selected `read_pdf_content` extraction has no text, return a rendered image of page 1 when available\n\u2022 Keep rendering and text recognition distinct: page and region renders are raster images, not OCR text\n\u2022 Treat mixed text/raster documents and raster pages after page 1 as potentially unrecognized by broad text reads\n\u2022 Extract structured data to CSV\n\u2022 Inspect page-level details like orientation, text presence, images, and likely blank pages\n\u2022 Review metadata such as page count, dimensions, form fields, and file size\n\n**Local file operations and host-aware privacy:** PDF Tools reads, renders, edits, and saves files on the user's machine and does not upload them to a separate PDF service. Text, images, or metadata returned through MCP may be processed under the selected host or model provider's data terms. Claude Desktop users choose which folders PDF Tools may read from or write to.\n\n**Works with many PDF types:** Forms, contracts, research papers, technical manuals, invoices, financial statements, scanned documents, municipal packets, and encrypted PDFs. The local runtime does not currently bundle OCR; optional local OCR remains planned rather than shipped.\n\n**Best for:** People who need more than a viewer: operators processing forms, lawyers organizing contracts, accountants handling tax documents, researchers reviewing papers, and anyone who wants local PDF file operations with their chosen MCP host.",
+        "author": {
+          "name": "Open Document Alliance",
+          "email": "mat@businessvacation.com",
+          "url": "https://github.com/Open-Document-Alliance"
+        },
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/Open-Document-Alliance/PDF-Tools"
+        },
+        "homepage": "https://github.com/Open-Document-Alliance/PDF-Tools",
+        "documentation": "https://github.com/Open-Document-Alliance/PDF-Tools/blob/master/README.md",
+        "support": "https://github.com/Open-Document-Alliance/PDF-Tools/issues",
+        "icon": "icon.png",
+        "server": {
+          "type": "node",
+          "entry_point": "server/index.js",
+          "mcp_config": {
+            "command": "node",
+            "args": [
+              "${__dirname}/server/index.js",
+              "--allowed-directories",
+              "${user_config.allowed_directories}"
+            ],
+            "env": {
+              "DEFAULT_PDF_DIR": "${user_config.default_pdf_directory}",
+              "DEFAULT_PROFILES_DIR": "${HOME}/.pdf-toolkit-files",
+              "DEFAULT_DOWNLOAD_DIR": "${user_config.download_directory}",
+              "ALLOWED_DIRECTORIES": "${user_config.allowed_directories}"
+            }
+          }
+        },
+        "tools": [
+          {
+            "name": "display_pdf",
+            "description": "Display an interactive PDF viewer with search, navigation, zoom, and form field detection"
+          },
+          {
+            "name": "list_pdfs",
+            "description": "List PDF files in a directory, sorted by name, up to 200 per call"
+          },
+          {
+            "name": "read_pdf_fields",
+            "description": "Read all form fields from a PDF file"
+          },
+          {
+            "name": "fill_pdf",
+            "description": "Fill a PDF form; may save in place with automatic backup"
+          },
+          {
+            "name": "bulk_fill_from_csv",
+            "description": "Fill multiple PDFs using data from a CSV file"
+          },
+          {
+            "name": "save_profile",
+            "description": "Save form data as a reusable profile"
+          },
+          {
+            "name": "load_profile",
+            "description": "Load a saved profile"
+          },
+          {
+            "name": "list_profiles",
+            "description": "List all saved profiles"
+          },
+          {
+            "name": "fill_with_profile",
+            "description": "Fill a PDF using a saved profile"
+          },
+          {
+            "name": "extract_to_csv",
+            "description": "Extract form data from filled PDFs to a CSV file"
+          },
+          {
+            "name": "validate_pdf",
+            "description": "Inspect AcroForm value coverage and actual PDF Required flags without claiming the form is ready to submit"
+          },
+          {
+            "name": "read_pdf_content",
+            "description": "Read PDF content with explicit complete, partial, or failed extraction status"
+          },
+          {
+            "name": "read_pdf_pages",
+            "description": "Read a bounded page range from a PDF with page-numbered structured output"
+          },
+          {
+            "name": "read_pdf_layout",
+            "description": "Extract bounded local text geometry and conservative reading order into the versioned PDF Tools Extraction IR"
+          },
+          {
+            "name": "convert_pdf_to_markdown",
+            "description": "Convert supported local PDF text to deterministic Markdown with explicit partial and unsupported-content gaps, including evidence-backed tables and source-validated external http or https links; optionally enable counted compact-mode normalizations"
+          },
+          {
+            "name": "verify_table_proposal",
+            "description": "Check a suggested table against the original PDF and return it only when the text and layout match the document; unclear tables stay unconverted for review"
+          },
+          {
+            "name": "render_pdf_page",
+            "description": "Render one source-bound PDF.js page view to PNG with distinct raw page geometry, view geometry, renderer policy, and digest evidence"
+          },
+          {
+            "name": "render_pdf_region",
+            "description": "Render a bounded source-bound PDF.js viewport region to PNG; these coordinates are not MediaBox-relative signing coordinates"
+          },
+          {
+            "name": "search_pdf_text",
+            "description": "Search extracted PDF text for a phrase and return page-numbered snippets"
+          },
+          {
+            "name": "get_pdf_resource_uri",
+            "description": "Get a resource URI for a PDF file that can be used with Claude's built-in PDF reading capabilities via the Resources API"
+          },
+          {
+            "name": "get_pdf_identity",
+            "description": "Get a parser-independent canonical path, exact byte length, and SHA-256 for a local PDF up to 250 MiB after validating its PDF header"
+          },
+          {
+            "name": "merge_pdfs",
+            "description": "Merge multiple PDF files into a single PDF"
+          },
+          {
+            "name": "split_pdf",
+            "description": "Split a PDF into multiple files by page ranges or intervals"
+          },
+          {
+            "name": "rotate_pdf_pages",
+            "description": "Rotate pages in a PDF by 90, 180, or 270 degrees"
+          },
+          {
+            "name": "reorder_pdf_pages",
+            "description": "Rearrange the pages of a PDF in a new order"
+          },
+          {
+            "name": "inspect_pdf_accessibility",
+            "description": "Inspect eight shallow catalog-level accessibility signals with source binding, fixed limitations, and required human review"
+          },
+          {
+            "name": "compare_pdfs",
+            "description": "Deterministically compare two whole local PDFs with source-bound semantic, text, structure, form, annotation, metadata, and optional visual evidence"
+          },
+          {
+            "name": "get_pdf_info",
+            "description": "Observe bounded source-bound PDF page geometry, metadata, form widgets, and inert ordinary annotations with explicit coverage"
+          },
+          {
+            "name": "apply_page_plan",
+            "description": "Reorder, rotate, and delete PDF pages in one pass, saving as a new file"
+          },
+          {
+            "name": "get_page_analysis",
+            "description": "Analyze PDF pages with provenance-safe blank, unknown, orientation, text, and image status"
+          },
+          {
+            "name": "fetch_pdf_from_url",
+            "description": "Download a PDF from an HTTP(S) URL to the user's local machine. Works when Claude's WebFetch is blocked"
+          },
+          {
+            "name": "create_signature",
+            "description": "Save a reusable typed-name or image signature to ~/.pdf-toolkit-files/signatures/"
+          },
+          {
+            "name": "get_allowed_directories",
+            "description": "Report which folders this server may read and write, which configuration layer supplied them, and where the stored configuration file lives"
+          },
+          {
+            "name": "list_signatures",
+            "description": "List all saved signatures"
+          },
+          {
+            "name": "load_signature",
+            "description": "Load one saved signature by name, including preview data for image signatures"
+          },
+          {
+            "name": "get_active_document",
+            "description": "Return the toolkit's current canonical PDF path, backup path, and last mutation metadata"
+          },
+          {
+            "name": "set_active_document",
+            "description": "Rehydrate the toolkit's active document state from the currently open viewer session"
+          },
+          {
+            "name": "add_signature_field",
+            "description": "Draw a visible 'Sign here' placeholder box on a PDF page (marks location only; does NOT sign)"
+          },
+          {
+            "name": "apply_signature",
+            "description": "Stamp a saved signature at a specific location. Requires explicit human intent (user_intent_statement + user_confirmed_at). Basic local stamp, not cryptographic signing."
+          },
+          {
+            "name": "prepare_signing_packet",
+            "description": "Fill form fields AND add sign-here placeholder boxes in one pass, returning a pending-signatures manifest"
+          },
+          {
+            "name": "detect_signature_zones",
+            "description": "Find places in a PDF for signatures, initials, printed names, and dates. Use apply_signature for signatures and initials, and apply_text for names and dates. Never guess coordinates."
+          },
+          {
+            "name": "apply_text",
+            "description": "Stamp a plain text string at a location (for date zones or arbitrary text fills; no intent required)"
+          },
+          {
+            "name": "reveal_in_finder",
+            "description": "Open the OS file manager with the given file selected. Used by the viewer to surface the active PDF or its backup"
+          }
+        ],
+        "tools_generated": true,
+        "prompts": [
+          {
+            "name": "view_and_analyze_pdf",
+            "description": "Open and analyze any PDF document",
+            "arguments": [
+              "focus"
+            ],
+            "text": "Use PDF Tools to open a PDF stored on this computer and analyze it, focusing on ${arguments.focus}. If I haven't given you a path, start by listing the PDFs in my default folder so I can pick one. Then extract key findings, summarize sections, answer questions about specific pages, pull out structured data, and identify form fields if present."
+          },
+          {
+            "name": "research_paper_analysis",
+            "description": "Analyze & summarize research papers",
+            "arguments": [
+              "focus_area"
+            ],
+            "text": "Use PDF Tools to analyze a research paper stored on this computer, focusing on ${arguments.focus_area}. If I haven't given you a path, start by listing the PDFs in my default folder so I can pick one. Extract the key findings and methodology, identify research gaps, summarize it chapter by chapter, pull out the citations, and draft a literature review outline."
+          },
+          {
+            "name": "contract_comparison",
+            "description": "Compare legal documents & contracts",
+            "arguments": [
+              "comparison_focus"
+            ],
+            "text": "Use PDF Tools to compare contracts or legal documents stored on this computer, focusing on ${arguments.comparison_focus}. If I haven't given you their paths, start by listing the PDFs in my default folder so I can pick them. Highlight changed clauses, modified terms, added or removed sections, pricing differences, and liability changes, then summarize the comparison."
+          },
+          {
+            "name": "financial_report_extraction",
+            "description": "Extract data from financial statements",
+            "arguments": [
+              "output_format"
+            ],
+            "text": "Use PDF Tools to extract and analyze data from financial PDFs stored on this computer, including tables and key metrics. If I haven't given you a path, start by listing the PDFs in my default folder so I can pick one. Convert what you extract to ${arguments.output_format} format, cite the page for the values you extract, and tell me plainly about anything you could not extract."
+          },
+          {
+            "name": "document_qa_session",
+            "description": "Interactive Q&A about your documents",
+            "arguments": [
+              "initial_question"
+            ],
+            "text": "Use PDF Tools to open a PDF stored on this computer so we can discuss it. My first question is: ${arguments.initial_question}. If I haven't given you a path, start by listing the PDFs in my default folder so I can pick one. Find specific information, explain complex sections, cross-reference different parts, and quote passages with their page numbers."
+          },
+          {
+            "name": "bulk_invoice_processing",
+            "description": "Process multiple invoices into structured data",
+            "arguments": [
+              "folder_path",
+              "output_format"
+            ],
+            "text": "Use PDF Tools to process the invoice PDFs in the folder ${arguments.folder_path} on this computer and build a unified dataset in ${arguments.output_format} format. Start by listing the PDFs in that folder so I can see what you found. Extract vendor names, invoice numbers, dates, line items, totals, tax amounts, and payment terms, and tell me about any invoice you could not read."
+          },
+          {
+            "name": "technical_documentation_summary",
+            "description": "Summarize technical manuals & documentation",
+            "arguments": [
+              "summary_type"
+            ],
+            "text": "Use PDF Tools to analyze technical documentation stored on this computer and create ${arguments.summary_type}. If I haven't given you a path, start by listing the PDFs in my default folder so I can pick one. Extract the code examples, build a reference guide, identify the implementation steps, and summarize the troubleshooting sections."
+          },
+          {
+            "name": "fill_w9_business",
+            "description": "Fill W-9 for business entity",
+            "text": "Use PDF Tools to fill out a W-9 stored on this computer for my business. If I haven't already given you the file, start by listing the PDFs in my default folder so I can point you at the right form, then read its fields. Ask me for the business legal name, the DBA or trade name if it differs, the business type (LLC, corporation, partnership), the tax classification, the EIN, and the business address. Check the correct tax classification boxes and tell me about any required field you could not fill."
+          },
+          {
+            "name": "batch_invoices",
+            "description": "Process multiple invoices",
+            "text": "Use PDF Tools to batch process invoice PDFs stored on this computer. If I haven't already named them, start by listing the PDFs in my default folder so I can confirm which ones to use, or I'll name the folder they are in. Extract the amounts and dates, build a summary spreadsheet, flag missing information, total them by vendor, date, and category, and tell me about any invoice you could not read. Ask me which fields matter most before you start."
+          },
+          {
+            "name": "rental_application",
+            "description": "Fill rental application",
+            "text": "Use PDF Tools to help me complete a rental application stored on this computer. If I haven't already given you the file, start by listing the PDFs in my default folder so I can point you at the right form, then read its fields. I'll have ready my personal details, three years of employment history, income verification, three years of previous addresses, references, vehicle information, and an emergency contact. Fill every required field and flag the ones that need supporting documents."
+          },
+          {
+            "name": "extract_1099_data",
+            "description": "Extract data from 1099 forms",
+            "text": "Use PDF Tools to extract the data from 1099 forms stored on this computer (1099-NEC, 1099-MISC, 1099-DIV, 1099-INT and similar) and build a tax summary. If I haven't already named them, start by listing the PDFs in my default folder so I can confirm which ones to use. Organize by payer, identify the type of income, total each category, format it for import into tax software, and tell me about anything you could not read."
+          },
+          {
+            "name": "merge_documents",
+            "description": "Combine multiple PDFs into one document",
+            "text": "Use PDF Tools to merge PDF files stored on this computer into one document. If I haven't already named them, start by listing the PDFs in my default folder so I can choose which ones to combine, then ask me where to save the result. Preserve the page order, and afterwards report the page count and the output path so I can check it. File operations happen locally; content you inspect is handled under my MCP host or model provider's data terms."
+          },
+          {
+            "name": "split_large_document",
+            "description": "Split a PDF into smaller files",
+            "text": "Use PDF Tools to split a PDF stored on this computer into separate files. If I haven't given you a path, start by listing the PDFs in my default folder so I can pick one. I'll either give you exact page ranges (for example pages 1-10 and 11-20) or ask you to split at a regular interval (for example every 5 pages). Save each section as its own PDF and tell me where you wrote them."
+          },
+          {
+            "name": "organize_scanned_pages",
+            "description": "Rotate and reorder scanned PDF pages",
+            "text": "Use PDF Tools to fix up a scanned PDF stored on this computer. If I haven't given you a path, start by listing the PDFs in my default folder so I can pick one. Rotate the pages I tell you are sideways or upside-down (90, 180, or 270 degrees) and reorder pages that were scanned out of sequence. Tell me the page order and rotations you plan to apply before you save, so I can confirm them."
+          }
+        ],
+        "keywords": [
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>"
+        ],
+        "license": "MIT",
+        "user_config": {
+          "download_directory": {
+            "type": "directory",
+            "title": "Download Directory",
+            "description": "Where PDFs saved via fetch_pdf_from_url land by default. You can still override per-call with the destination_dir argument, but this is the default for new downloads.",
+            "required": false,
+            "default": "${HOME}/Downloads"
+          },
+          "default_pdf_directory": {
+            "type": "directory",
+            "title": "Default PDFs Folder",
+            "description": "Where list_pdfs looks when no directory is specified.",
+            "required": false,
+            "default": "${HOME}/Documents"
+          },
+          "allowed_directories": {
+            "type": "directory",
+            "title": "Allowed PDF Directories",
+            "description": "Folders this extension may read from or write to. PDF tools will refuse paths outside these folders. Profiles and saved signatures remain in the extension's private local store.",
+            "required": false,
+            "default": [
+              "${HOME}/Documents",
+              "${HOME}/Downloads",
+              "${HOME}/Desktop"
+            ],
+            "multiple": true
+          }
+        }
+      },
+      "signatureInfo": {
+        "status": "unsigned"
+      },
+      "source": "registry"
+    },
+    "ant.dir.ant.anthropic.notes": {
+      "id": "ant.dir.ant.anthropic.notes",
+      "version": "0.1.7",
+      "hash": "<REDACTED>",
+      "installedAt": "2026-02-08T01:15:53.032Z",
+      "manifest": {
+        "dxt_version": "0.1",
+        "name": "Notes",
+        "display_name": "Read and Write Apple Notes",
+        "version": "0.1.7",
+        "description": "Read, write, and manage notes in Apple Notes",
+        "long_description": "This extension allows Claude to interact with your macOS Notes app, enabling creating, reading, updating, and listing notes.\n\nIt uses macOS automation features to interact with the Messages app and requires your explicit permission through macOS security prompts before accessing Messages or Contacts. It is not affiliated with or endorsed by Apple Inc.",
+        "author": {
+          "name": "Anthropic",
+          "url": "https://www.claude.ai"
+        },
+        "homepage": "https://www.claude.ai",
+        "documentation": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+        "support": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+        "icon": "icon.png",
+        "server": {
+          "type": "node",
+          "entry_point": "server/index.js",
+          "mcp_config": {
+            "command": "node",
+            "args": [
+              "${__dirname}/server/index.js"
+            ],
+            "env": {
+              "HOME": "${HOME}"
+            }
+          }
+        },
+        "tools": [
+          {
+            "name": "list_notes",
+            "description": "List all notes from Apple Notes app"
+          },
+          {
+            "name": "get_note_content",
+            "description": "Get the content of a specific note by its name"
+          },
+          {
+            "name": "add_note",
+            "description": "Create a new note in Apple Notes"
+          },
+          {
+            "name": "update_note_content",
+            "description": "Update the content of an existing note"
+          }
+        ],
+        "keywords": [
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>"
+        ],
+        "license": "MIT",
+        "compatibility": {
+          "claude_desktop": ">=0.10.0",
+          "platforms": [
+            "darwin"
+          ],
+          "runtimes": {
+            "node": ">=16.0.0"
+          }
+        }
+      },
+      "signatureInfo": {
+        "status": "unsigned"
+      },
+      "source": "registry"
+    },
+    "ant.dir.gh.k6l3.osascript": {
+      "id": "ant.dir.gh.k6l3.osascript",
+      "version": "0.0.1",
+      "hash": "<REDACTED>",
+      "installedAt": "2026-02-08T01:16:00.753Z",
+      "manifest": {
+        "dxt_version": "0.1",
+        "name": "Control your Mac",
+        "version": "0.0.1",
+        "description": "Execute AppleScript to automate tasks on macOS.",
+        "long_description": "This tool allows you to execute AppleScript commands using `osascript`, enabling automation of tasks on macOS systems. Try asking Claude to do things on your Mac, like controlling applications or changing system settings.",
+        "author": {
+          "name": "Kenneth Lien",
+          "url": "https://kennethlien.com"
+        },
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/k6l3/osascript-dxt"
+        },
+        "homepage": "https://github.com/k6l3/osascript-dxt",
+        "documentation": "https://github.com/k6l3/osascript-dxt",
+        "support": "https://github.com/k6l3/osascript-dxt/issues",
+        "icon": "icon.png",
+        "server": {
+          "type": "node",
+          "entry_point": "server/index.js",
+          "mcp_config": {
+            "command": "node",
+            "args": [
+              "${__dirname}/server/index.js"
+            ],
+            "env": {}
+          }
+        },
+        "tools": [
+          {
+            "name": "osascript",
+            "description": "Execute `osascript -e <script>`"
+          }
+        ],
+        "keywords": [
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>"
+        ],
+        "license": "MIT"
+      },
+      "signatureInfo": {
+        "status": "unsigned"
+      },
+      "source": "registry"
+    },
+    "ant.dir.ant.anthropic.ms_office_powerpoint": {
+      "id": "ant.dir.ant.anthropic.ms_office_powerpoint",
+      "version": "0.4.3",
+      "hash": "<REDACTED>",
+      "installedAt": "2026-10-23T18:10:00.294Z",
+      "manifest": {
+        "manifest_version": "0.2",
+        "name": "PowerPoint (By Anthropic)",
+        "display_name": "PowerPoint (By Anthropic)",
+        "version": "0.4.3",
+        "description": "Control Microsoft PowerPoint with AppleScript automation",
+        "long_description": "This extension allows Claude to interact with Microsoft PowerPoint on macOS, enabling presentation creation, slide management, and content editing.\n\nIt uses macOS AppleScript automation to control PowerPoint and requires your explicit permission through macOS security prompts before accessing Microsoft PowerPoint. It is not affiliated with or endorsed by Microsoft Corporation.",
+        "author": {
+          "name": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        "homepage": "https://www.anthropic.com",
+        "documentation": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+        "support": "https://support.anthropic.com/en/collections/4078531-claude-ai",
+        "icon": "icon.png",
+        "server": {
+          "type": "node",
+          "entry_point": "server/index.js",
+          "mcp_config": {
+            "command": "node",
+            "args": [
+              "${__dirname}/server/index.js"
+            ],
+            "env": {
+              "HOME": "${HOME}"
+            }
+          }
+        },
+        "tools": [
+          {
+            "name": "create_presentation",
+            "description": "Create a new PowerPoint presentation"
+          },
+          {
+            "name": "open_presentation",
+            "description": "Open an existing PowerPoint presentation"
+          },
+          {
+            "name": "add_slide",
+            "description": "Add a new slide to the presentation"
+          },
+          {
+            "name": "get_slide_content",
+            "description": "Get the text content from a specific slide"
+          },
+          {
+            "name": "set_slide_title",
+            "description": "Set the title of a slide"
+          },
+          {
+            "name": "add_text_to_slide",
+            "description": "Add text content to a slide"
+          },
+          {
+            "name": "insert_image",
+            "description": "Insert an image into a slide"
+          },
+          {
+            "name": "delete_slide",
+            "description": "Delete a specific slide"
+          },
+          {
+            "name": "save_presentation",
+            "description": "Save the active presentation"
+          },
+          {
+            "name": "close_presentation",
+            "description": "Close the active presentation"
+          },
+          {
+            "name": "export_pdf",
+            "description": "Export the presentation as PDF"
+          }
+        ],
+        "keywords": [
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>"
+        ],
+        "license": "MIT",
+        "privacy_policies": [
+          "https://www.microsoft.com/en-us/privacy/privacystatement"
+        ],
+        "compatibility": {
+          "claude_desktop": ">=0.10.0",
+          "platforms": [
+            "darwin"
+          ],
+          "runtimes": {
+            "node": ">=16.0.0"
+          }
+        }
+      },
+      "signatureInfo": {
+        "status": "unsigned"
+      },
+      "source": "registry"
+    },
+    "ant.dir.gh.railsware.couplerio": {
+      "id": "ant.dir.gh.railsware.couplerio",
+      "version": "0.0.5",
+      "hash": "<REDACTED>",
+      "installedAt": "2026-05-08T07:44:53.235Z",
+      "manifest": {
+        "manifest_version": "0.3",
+        "name": "coupler-io-data-analyst",
+        "display_name": "Coupler.io",
+        "version": "0.0.5",
+        "description": "Connect data from hundreds of data sources and apps to analyze it with Claude.",
+        "long_description": "Key features:\n* Access data via natural language: Analyze data without SQL or coding skills. Connect to hundreds of data flows and dashboards, and get answers just by asking like you'd ask your colleague.\n* Always stay up to date: Coupler.io keeps your data fresh based on the schedule you create, so Claude delivers on-demand reports and insights whenever you need them.\n* Blend data across sources: Combine data from multiple sources and interact with it directly in your AI chat.\n* Analyze big data with AI: Coupler.io MCP enables Claude to handle large datasets without limits, so you get complete insights without context window restrictions.\n* Turn your data into dialogue: analyze, explore, and automate insights directly in Claude.",
+        "author": {
+          "name": "Coupler.io",
+          "email": "contact@coupler.io",
+          "url": "https://coupler.io"
+        },
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/railsware/coupler-io-mcp-server"
+        },
+        "homepage": "https://coupler.io",
+        "documentation": "https://rw.rw/couplerio/mcp",
+        "support": "https://help.coupler.io",
+        "icon": "icon.png",
+        "server": {
+          "type": "node",
+          "entry_point": "dist/index.js",
+          "mcp_config": {
+            "command": "node",
+            "args": [
+              "${__dirname}/dist/index.js"
+            ],
+            "env": {
+              "COUPLER_ACCESS_TOKEN": "<REDACTED>",
+              "APP_VERSION": "0.0.5"
+            }
+          }
+        },
+        "tools": [
+          {
+            "name": "get-data",
+            "description": "Get data from a Coupler.io data flow run."
+          },
+          {
+            "name": "get-schema",
+            "description": "Get data table schema from a Coupler.io data flow."
+          },
+          {
+            "name": "list-dataflows",
+            "description": "List my Coupler.io data flows."
+          },
+          {
+            "name": "get-dataflow",
+            "description": "Get a Coupler.io data flow by ID."
+          }
+        ],
+        "keywords": [
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>"
+        ],
+        "license": "MIT",
+        "privacy_policies": [
+          "https://coupler.io/privacy-policy"
+        ],
+        "compatibility": {
+          "platforms": [
+            "darwin",
+            "win32",
+            "linux"
+          ],
+          "runtimes": {
+            "node": ">=16.0.0"
+          }
+        },
+        "user_config": {
+          "coupler_access_token": {
+            "type": "string",
+            "title": "Coupler.io API access token",
+            "description": "Sign up at coupler.io to get the API token",
+            "required": true,
+            "sensitive": true
+          }
+        }
+      },
+      "signatureInfo": {
+        "status": "unsigned"
+      },
+      "source": "registry"
+    },
+    "ant.dir.gh.apify.apify-mcp-server": {
+      "id": "ant.dir.gh.apify.apify-mcp-server",
+      "version": "0.14.3",
+      "hash": "<REDACTED>",
+      "installedAt": "2026-08-18T03:30:26.407Z",
+      "manifest": {
+        "manifest_version": "0.3",
+        "name": "apify-mcp-server",
+        "display_name": "Apify",
+        "version": "0.14.3",
+        "description": "Extract data from any website with thousands of scrapers, crawlers, and automations on Apify Store.",
+        "long_description": "Apify is the world's largest marketplace of tools for web scraping, crawling, data extraction, and web automation. Get structured data from social media, e-commerce, search engines, maps, travel sites, or any other website.",
+        "author": {
+          "name": "Apify Technologies s.r.o.",
+          "url": "https://apify.com/"
+        },
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/apify/apify-mcp-server"
+        },
+        "homepage": "https://apify.com/",
+        "support": "https://help.apify.com/",
+        "icon": "icon.png",
+        "screenshots": [
+          "docs/actors-mcp-server.png"
+        ],
+        "server": {
+          "type": "node",
+          "entry_point": "dist/stdio.js",
+          "mcp_config": {
+            "command": "node",
+            "args": [
+              "${__dirname}/dist/stdio.js",
+              "--tools",
+              "${user_config.tools}"
+            ],
+            "env": {
+              "APIFY_TOKEN": "<REDACTED>"
+            }
+          }
+        },
+        "tools": [
+          {
+            "name": "readme",
+            "description": "Apify MCP Server usage guide. Read this to understand how to use the server "
+          }
+        ],
+        "tools_generated": true,
+        "prompts_generated": true,
+        "keywords": [
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>"
+        ],
+        "license": "MIT",
+        "privacy_policies": [
+          "https://docs.apify.com/legal"
+        ],
+        "compatibility": {
+          "claude_desktop": ">=0.2.16",
+          "platforms": [
+            "darwin",
+            "win32",
+            "linux"
+          ],
+          "runtimes": {
+            "node": ">=22.0.0"
+          }
+        },
+        "user_config": {
+          "apify_token": {
+            "type": "string",
+            "title": "Apify API token",
+            "description": "You can create a free account and get an API token at https://console.apify.com/settings/integrations",
+            "required": true,
+            "sensitive": true
+          },
+          "tools": {
+            "type": "string",
+            "title": "Enabled tools",
+            "description": "Comma-separated list of tool categories or Actors, e.g. \"actors,docs,apify/rag-web-browser\". For details, see https://mcp.apify.com",
+            "required": false,
+            "default": "actors,docs,apify/rag-web-browser"
+          }
+        }
+      },
+      "signatureInfo": {
+        "status": "unsigned"
+      },
+      "source": "registry"
+    },
+    "ant.dir.gh.tianqitang1.enrichr-mcp-server": {
+      "id": "ant.dir.gh.tianqitang1.enrichr-mcp-server",
+      "version": "0.3.0",
+      "hash": "<REDACTED>",
+      "installedAt": "2026-03-27T07:28:35.237Z",
+      "manifest": {
+        "manifest_version": "0.2",
+        "name": "enrichr-mcp-server",
+        "display_name": "Enrichr MCP Server",
+        "version": "0.3.0",
+        "description": "Gene set enrichment analysis using Enrichr API with multi-library support",
+        "long_description": "A Model Context Protocol (MCP) server that provides gene set enrichment analysis using the Enrichr API. This server supports all available gene set libraries from Enrichr and returns only statistically significant results (adjusted p < 0.05) for LLM tools to interpret.\n\nFeatures:\n- Multi-Library Enrichment Analysis: Query multiple Enrichr libraries simultaneously\n- Comprehensive Library Support: Access to hundreds of gene set libraries including GO, pathways, diseases, tissues, drugs\n- GO Enrichment Analysis: Specialized tool for GO Biological Process enrichment analysis\n- Configurable output formats: detailed, compact, or minimal\n- Export results to TSV files",
+        "author": {
+          "name": "Tianqi Tang",
+          "email": "tianqi.tang@ucsf.edu"
+        },
+        "repository": {
+          "type": "git",
+          "url": "https://github.com/tianqitang1/enrichr-mcp-server"
+        },
+        "homepage": "https://github.com/tianqitang1/enrichr-mcp-server#readme",
+        "documentation": "https://github.com/tianqitang1/enrichr-mcp-server#readme",
+        "support": "https://github.com/tianqitang1/enrichr-mcp-server/issues",
+        "icon": "icon.png",
+        "server": {
+          "type": "node",
+          "entry_point": "build/index.js",
+          "mcp_config": {
+            "command": "node",
+            "args": [
+              "${__dirname}/build/index.js"
+            ],
+            "env": {
+              "ENRICHR_LIBRARIES": "${user_config.libraries}",
+              "ENRICHR_MAX_TERMS": "${user_config.max_terms}",
+              "ENRICHR_FORMAT": "${user_config.format}",
+              "ENRICHR_OUTPUT_FILE": "${user_config.output_file}"
+            }
+          }
+        },
+        "tools": [
+          {
+            "name": "enrichr_analysis",
+            "description": "Perform gene set enrichment analysis using Enrichr with support for multiple gene set libraries"
+          },
+          {
+            "name": "suggest_libraries",
+            "description": "Suggest relevant Enrichr libraries for a research question"
+          }
+        ],
+        "keywords": [
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>",
+          "<REDACTED>"
+        ],
+        "license": "MIT",
+        "compatibility": {
+          "claude_desktop": ">=0.10.0",
+          "platforms": [
+            "darwin",
+            "win32",
+            "linux"
+          ],
+          "runtimes": {
+            "node": ">=18.0.0"
+          }
+        },
+        "user_config": {
+          "libraries": {
+            "type": "string",
+            "title": "Default Libraries",
+            "description": "Comma-separated list of Enrichr libraries to query by default (e.g., GO_Biological_Process_2025,KEGG_2021_Human). Use 'pop' for popular libraries.",
+            "required": false,
+            "default": "pop"
+          },
+          "max_terms": {
+            "type": "number",
+            "title": "Maximum Terms per Library",
+            "description": "Maximum number of significant terms to show per library",
+            "required": false,
+            "default": 50,
+            "min": 1,
+            "max": 100
+          },
+          "format": {
+            "type": "string",
+            "title": "Output Format",
+            "description": "Default output format for results, can be detailed, compact, or minimal",
+            "required": false,
+            "default": "detailed"
+          },
+          "output_file": {
+            "type": "file",
+            "title": "TSV Output File",
+            "description": "Optional path to save complete results as TSV file",
+            "required": false
+          }
+        }
+      },
+      "signatureInfo": {
+        "status": "unsigned"
+      },
+      "source": "registry"
+    }
+  }
+}

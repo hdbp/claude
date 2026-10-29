@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "name": "scikit-bio",
+  "owner": "k-dense-ai",
+  "repo": "claude-scientific-skills",
+  "path": "scientific-skills/scikit-bio",
+  "branch": "main",
+  "sha": "ce57e08ef1c4dbcfeaad15ae15ba6c0932d9bd97",
+  "source": "manual"
+}
